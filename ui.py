@@ -68,8 +68,6 @@ class SimpleWinlockerUI(QtWidgets.QWidget):
     	self.setWindowTitle(('Simple winlocker'))
     	self.unlock_btn.setText(("Unlock"))
     	self.label.setText(("Windows locked"))
-    def test_func(self):
-        print('test')
 
 
 
