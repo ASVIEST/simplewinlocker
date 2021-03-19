@@ -1,13 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from GlassBg import SetGlassBg
 
 import sys
 
 
 
-class SimpleWinlockerUI(QMainWindow):
+class SimpleWinlockerUI(QtWidgets.QWidget):
     def __init__(self, screen_size):
         super(SimpleWinlockerUI, self).__init__()
         self.pointsize = 64
@@ -22,8 +21,10 @@ class SimpleWinlockerUI(QMainWindow):
         font.setPointSize(self.pointsize)
 
         self.label = QtWidgets.QLabel(self)
+        
         self.label.setMinimumWidth(1024)
-        self.label.setMinimumHeight(128)
+        self.label.setMinimumHeight(256)
+        #self.label.adjustSize()
         self.label.setStyleSheet("color: rgba(11, 11, 11, 125);")
         self.label.move(self.screen_size.width() / 2 - self.label.width() / 2, self.screen_size.height() - self.label.height() / 2 - self.pointsize)
         self.label.setFont(font)
@@ -54,6 +55,7 @@ class SimpleWinlockerUI(QMainWindow):
 
 
         self.retranslateUi()
+        
 
         # label.setMinimumWidth(1024)
         # label.setMinimumHeight(128)
@@ -63,9 +65,11 @@ class SimpleWinlockerUI(QMainWindow):
     def retranslateUi(self):
     	_translate = QtCore.QCoreApplication.translate
 
-    	self.setWindowTitle('Simple winlocker')
-    	self.unlock_btn.setText("Unlock")
-    	self.label.setText("Windows locked")
+    	self.setWindowTitle(('Simple winlocker'))
+    	self.unlock_btn.setText(("Unlock"))
+    	self.label.setText(("Windows locked"))
+    def test_func(self):
+        print('test')
 
 
 
@@ -73,10 +77,10 @@ class SimpleWinlockerUI(QMainWindow):
 
 
 if __name__ == "__main__":
+    from GlassBg import SetGlassBg
     app = QApplication(sys.argv)
-    
-
-    win = SimpleWinlockerUI(app.desktop().screenGeometry())
+    #MainWindow = QMainWindow()
+    win = SimpleWinlockerUI(app.desktop().screenGeometry())#MainWindow, app.desktop().screenGeometry())
     SetGlassBg(win)
 
     win.showFullScreen()
