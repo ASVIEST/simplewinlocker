@@ -22,5 +22,3 @@ def hide_taskbar():
 def unhide_taskbar():
     hWnd = user32.FindWindowW(u"Shell_traywnd", None)
     user32.ShowWindow(hWnd, SW_SHOW)
-
-hide_taskbar()
