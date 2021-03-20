@@ -36,7 +36,7 @@ class SimpleWinlockerUI(QtWidgets.QWidget):
         self.lineEdit.setStyleSheet("background-color: transparent;\n"
         "color: rgba(11, 11, 11, 125);\n"
         "\n"
-        "selection-color: rgb(255, 255, 255, 2);\n"
+        "selection-color: rgb(255, 255, 255, .2);\n"
         "selection-background-color: rgba(91, 91, 91, .3);\n"
         "\n"
         "border: 8px rgba(11, 11, 11, 125);\n"
