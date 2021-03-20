@@ -27,7 +27,7 @@ class SimpleWinlocker(SimpleWinlockerUI):
 
     def chek_password(self):
     	print(self.lineEdit.text())
-    	if self.lineEdit.text() == '1234':
+    	if self.lineEdit.text() == self.password:
     		self.unlock_window()
 
     def unlock_window(self):
